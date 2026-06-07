@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio_Sarmiento</title>
+    
+    <!-- Premium Editorial Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&family=Prata&family=Montserrat:wght=200;300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Dark Blue Luxury Palette & Variables --- */
+        :root {
+            --bg-main: #0B0F19;         /* Midnight Prestige Blue - deep and luxurious */
+            --bg-card: #111625;         /* Deep Sapphire Blue for structural card depth */
+            --text-gold: #FFDF9E;       /* Radiant warm gold */
+            --glow-gold: rgba(255, 223, 158, 0.45); /* Amplified fluid gold glow aura */
+            --glow-ambient: rgba(23, 42, 69, 0.4);  /* Deep blue ambient backdrop glow */
+            --text-light: #F2EFE9;      /* Soft silk white for high readability */
+            --text-muted: #838B9C;      /* Muted slate-taupe for luxury contrast */
+            --border-subtle: rgba(255, 223, 158, 0.15); /* Elegant gold thread borders */
+            
+            --font-display: 'Cinzel', serif;
+            --font-serif: 'Prata', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        /* --- Global Reset & Refinements --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            background-image: 
+                radial-gradient(circle at 80% 20%, var(--glow-ambient) 0%, transparent 60%),
+                radial-gradient(circle at 20% 70%, rgba(30, 58, 138, 0.2) 0%, transparent 50%);
+            color: var(--text-light);
+            font-family: var(--font-body);
+            font-weight: 300;
+            line-height: 1.8;
+            overflow-x: hidden;
+            letter-spacing: 0.5px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 max(1.5rem, 4vw);
+        }
+
+        /* --- Premium Glowing Accent Lines --- */
+        .gold-divider {
+            width: 120px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--text-gold), transparent);
+            margin: 2rem auto;
+            box-shadow: 0 0 12px var(--text-gold), 0 0 4px var(--text-gold);
+        }
+
+        /* --- Header Navigation --- */
+        header {
+            padding: 2.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-subtle);
+            gap: 2rem;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: max(1.5rem, 3vw);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            position: relative;
+            padding-bottom: 6px;
+            white-space: nowrap;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background-color: var(--text-gold);
+            box-shadow: 0 0 10px var(--text-gold), 0 0 4px var(--text-gold);
+            transition: all 0.4s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover {
+            color: var(--text-light);
+            text-shadow: 0 0 12px var(--glow-gold);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Luxury Minimalist GS Horizontal Logo --- */
+        .luxury-logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .logo-monogram {
+            position: relative;
+            width: 48px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .logo-monogram .letter {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 1;
+            position: absolute;
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .logo-monogram .letter.g {
+            color: var(--text-gold);
+            transform: translate(-10px, -4px);
+            z-index: 1;
+            filter: drop-shadow(0 0 4px var(--glow-gold));
+        }
+
+        .logo-monogram .letter.s {
+            color: var(--text-light);
+            font-style: italic;
+            transform: translate(6px, 4px);
+            z-index: 2;
+            text-shadow: 
+                -2px -2px 0 var(--bg-main), 
+                2px -2px 0 var(--bg-main), 
+                -2px 2px 0 var(--bg-main), 
+                2px 2px 0 var(--bg-main);
+        }
+
+        .logo-divider-line {
+            width: 1px;
+            height: 24px;
+            background-color: rgba(255, 223, 158, 0.4);
+            margin: 0 max(0.6rem, 1.2vw);
+            transition: all 0.6s ease;
+            flex-shrink: 0;
+        }
+
+        .logo-text-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo-text-side .main-brand-title {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 5px;
+            color: var(--text-light);
+            line-height: 1.2;
+            transition: all 0.4s ease;
+            white-space: nowrap;
+        }
+
+        .logo-text-side .sub-brand-title {
+            font-family: var(--font-body);
+            font-size: 0.55rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-top: 2px;
+            white-space: nowrap;
+        }
+
+        /* Logo Glowing Interactive Hovers */
+        .luxury-logo-link:hover .letter.g {
+            transform: translate(-6px, -2px);
+            filter: drop-shadow(0 0 12px var(--text-gold));
+        }
+
+        .luxury-logo-link:hover .letter.s {
+            transform: translate(2px, 2px);
+            color: var(--text-gold);
+            filter: drop-shadow(0 0 8px var(--glow-gold));
+        }
+
+        .luxury-logo-link:hover .logo-divider-line {
+            background-color: var(--text-gold);
+            box-shadow: 0 0 10px var(--text-gold);
+            height: 30px;
+        }
+
+        .luxury-logo-link:hover .main-brand-title {
+            color: var(--text-gold);
+            text-shadow: 0 0 14px var(--glow-gold);
+        }
+
+        /* --- Asymmetric Lookbook Hero --- */
+        #hero {
+            padding: clamp(4rem, 10vw, 12rem) 0;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: max(2.5rem, 5vw);
+        }
+
+        .hero-statement {
+            z-index: 2;
+        }
+
+        .hero-tag {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            letter-spacing: 5px;
+            color: var(--text-gold);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            display: block;
+            text-shadow: 0 0 10px var(--glow-gold);
+        }
+
+        #hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.2rem, 5vw, 4.2rem);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+
+        #hero h1 span {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--text-gold);
+            text-shadow: 0 0 20px var(--glow-gold), 0 0 5px var(--text-gold);
+        }
+
+        .hero-description {
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+            color: var(--text-muted);
+            max-width: 480px;
+            line-height: 1.9;
+            margin-bottom: 2.5rem;
+        }
+
+        /* --- Hero Action Buttons --- */
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn-luxury {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 14px 28px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            background: transparent;
+        }
+
+        /* Solid Gold Glow Button Style */
+        .btn-luxury.gold-solid {
+            background-color: var(--text-gold);
+            color: var(--bg-main);
+            border: 1px solid var(--text-gold);
+            box-shadow: 0 4px 15px rgba(255, 223, 158, 0.15);
+        }
+
+        .btn-luxury.gold-solid:hover {
+            background-color: transparent;
+            color: var(--text-gold);
+            box-shadow: 0 0 25px var(--glow-gold), inset 0 0 10px rgba(255, 223, 158, 0.1);
+        }
+
+        /* Border Glow Button Style */
+        .btn-luxury.gold-outline {
+            border: 1px solid var(--border-subtle);
+            color: var(--text-light);
+        }
+
+        .btn-luxury.gold-outline:hover {
+            border-color: var(--text-gold);
+            color: var(--text-gold);
+            box-shadow: 0 0 20px rgba(255, 223, 158, 0.2);
+            text-shadow: 0 0 8px var(--glow-gold);
+        }
+
+        /* --- Premium Glowing Photo Frame Container --- */
+        .hero-frame {
+            width: 100%;
+            height: clamp(320px, 45vw, 520px);
+            border: 1px solid var(--border-subtle);
+            padding: clamp(0.6rem, 1.5vw, 1.2rem);
+            background: #090D16;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 40px 100px rgba(4, 6, 10, 0.8),
+                0 0 40px rgba(255, 223, 158, 0.05);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero-frame::before {
+            content: '';
+            position: absolute;
+            inset: clamp(6px, 1.2vw, 12px);
+            border: 1px solid rgba(255, 223, 158, 0.1);
+            pointer-events: none;
+            z-index: 3;
+            transition: all 0.7s ease;
+        }
+
+        .hero-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1;
+        }
+
+        .hero-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(11, 15, 25, 0.6) 0%, transparent 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-frame-stamp {
+    position: absolute;
+    bottom: clamp(1rem, 2vw, 2rem);
+    right: clamp(1rem, 2vw, 2rem);
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    color: var(--text-gold);
+    z-index: 4;
+    opacity: 1; /* Always fully visible */
+    text-shadow: 0 0 8px var(--glow-gold);
+    transition: all 0.5s ease;
+
+    /* Permanent Luxury Background Layout */
+    background-color: rgba(11, 15, 25, 0.85);   /* Dark midnight solid background */
+    padding: 8px 16px;                           /* Breathing room around the text */
+    border: 1px solid rgba(255, 223, 158, 0.25); /* Subtle gold framing line */
+    backdrop-filter: blur(6px);                  /* Premium glass blur effect */
+    -webkit-backdrop-filter: blur(6px);
+}
+
+        .hero-frame:hover .hero-frame-stamp {
+    border-color: rgba(255, 223, 158, 0.7);    /* Brightens the gold border frame */
+    box-shadow: 0 0 15px rgba(255, 223, 158, 0.2);
+    text-shadow: 0 0 15px var(--text-gold), 0 0 5px var(--text-gold);
+}
+        .hero-frame:hover {
+            border-color: rgba(255, 223, 158, 0.5);
+            box-shadow: 
+                0 40px 120px rgba(0, 0, 0, 0.9),
+                0 0 50px rgba(255, 223, 158, 0.25);
+        }
+
+        .hero-frame:hover::before {
+            border-color: rgba(255, 223, 158, 0.3);
+            inset: clamp(4px, 0.8vw, 8px);
+        }
+
+        .hero-frame:hover img {
+            
+            transform: scale(1.03);
+        }
+
+        .hero-frame:hover .hero-frame-stamp {
+            opacity: 1;
+            text-shadow: 0 0 15px var(--text-gold), 0 0 5px var(--text-gold);
+        }
+
+        /* --- Portfolio / Exhibits Section --- */
+        section {
+            padding: clamp(4rem, 8vw, 10rem) 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-subtitle {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            letter-spacing: 6px;
+            color: var(--text-gold);
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            display: block;
+            text-shadow: 0 0 8px rgba(255, 223, 158, 0.2);
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        /* Premium Portfolio Filter Buttons */
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: max(1rem, 2vw);
+            margin-bottom: clamp(4rem, 6vw, 7rem);
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            position: relative;
+        }
+
+        .filter-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background-color: var(--text-gold);
+            box-shadow: 0 0 10px var(--text-gold), 0 0 3px var(--text-gold);
+            transition: all 0.4s ease;
+            transform: translateX(-50%);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            color: var(--text-light);
+            text-shadow: 0 0 10px var(--glow-gold);
+        }
+
+        .filter-btn:hover::after,
+        .filter-btn.active::after {
+            width: 70%;
+        }
+
+        /* Lookbook Grid Layout */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(4rem, 8vw, 8rem) clamp(2rem, 4vw, 5rem);
+        }
+
+        .portfolio-item {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        /* Used by JS to smoothly fade out hidden cards */
+        .portfolio-item.hidden {
+            display: none;
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        .image-container {
+            width: 100%;
+            height: clamp(340px, 45vw, 550px);
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 30px 60px rgba(4, 6, 10, 0.6);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .image-container::before {
+            content: '';
+            position: absolute;
+            inset: 15px;
+            border: 1px solid rgba(255, 223, 158, 0.05);
+            transition: all 0.6s ease;
+        }
+
+        .placeholder-artwork {
+            font-family: var(--font-serif);
+            font-size: clamp(1.2rem, 2vw, 1.6rem);
+            color: var(--text-gold);
+            font-style: italic;
+            opacity: 0.45;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px rgba(255, 223, 158, 0.2);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .portfolio-item:hover .image-container {
+            transform: translateY(-10px);
+            border-color: rgba(255, 223, 158, 0.6);
+            box-shadow: 
+                0 40px 80px rgba(0, 0, 0, 0.7),
+                0 0 35px rgba(255, 223, 158, 0.2);
+            background-color: #161D32; /* Slightly illuminated deep blue on grid hover */
+        }
+
+        .portfolio-item:hover .image-container::before {
+            border-color: rgba(255, 223, 158, 0.2);
+        }
+
+        .portfolio-item:hover .placeholder-artwork {
+            opacity: 1;
+            transform: scale(1.02);
+            text-shadow: 0 0 15px var(--text-gold), 0 0 5px var(--text-gold);
+        }
+
+        .item-meta {
+            margin-top: 2rem;
+            padding: 0 0.5rem;
+        }
+
+        .item-category {
+            font-family: var(--font-display);
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            color: var(--text-gold);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .item-title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.3rem, 2vw, 1.7rem);
+            font-weight: 400;
+            color: var(--text-light);
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-item:hover .item-title {
+            color: #FFFFFF;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        /* --- Structural Studio Section --- */
+        #about {
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: clamp(5rem, 10vw, 12rem) 0;
+            margin-top: clamp(4rem, 8vw, 10rem);
+            box-shadow: inset 0 0 60px rgba(4, 6, 10, 0.7);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: clamp(3rem, 6vw, 6rem);
+            align-items: center;
+        }
+
+        .about-quote {
+            font-family: var(--font-serif);
+            font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+            line-height: 1.4;
+            font-style: italic;
+            color: var(--text-light);
+            border-left: 2px solid var(--text-gold);
+            padding-left: clamp(1.5rem, 3vw, 2.5rem);
+        }
+
+        .about-right h3 {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            letter-spacing: 4px;
+            margin-bottom: 1.5rem;
+            color: var(--text-gold);
+            text-transform: uppercase;
+            text-shadow: 0 0 8px rgba(255, 223, 158, 0.15);
+        }
+
+        .about-right p {
+            color: var(--text-muted);
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+            margin-bottom: 2rem;
+            line-height: 2;
+        }
+
+        .about-right p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* --- Compact Contact Section --- */
+        #contact {
+            padding: clamp(4rem, 8vw, 8rem) 0 clamp(5rem, 10vw, 10rem) 0;
+        }
+
+        .compact-contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(3rem, 6vw, 6rem);
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 4rem;
+        }
+
+        .contact-column-title {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            color: var(--text-gold);
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+            display: block;
+            text-shadow: 0 0 8px rgba(255, 223, 158, 0.2);
+        }
+
+        .compact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        /* Contact Rows with Vivid Colored Icons */
+        .compact-row {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 1.2rem 0.5rem;
+            text-decoration: none;
+            color: inherit;
+            border-bottom: 1px solid rgba(255, 223, 158, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        /* Responsive styling for Glowing SVGs */
+        .row-icon-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            margin-right: max(1rem, 2vw);
+            color: var(--text-gold);      
+            opacity: 0.85;                
+            filter: drop-shadow(0 0 4px rgba(255, 223, 158, 0.3));
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            flex-shrink: 0;
+        }
+
+        .row-icon-box svg {
+            width: 100%;
+            height: 100%;
+            fill: currentColor;
+        }
+
+        /* Custom typography styling for the special OJ badge */
+        .oj-badge {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: var(--text-gold);
+        }
+
+        .row-value {
+            font-family: var(--font-serif);
+            font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+            color: var(--text-light);
+            transition: all 0.4s ease;
+            word-break: break-all;
+        }
+
+        /* Fine Glowing Interaction Handles */
+        a.compact-row:hover {
+            border-bottom-color: var(--text-gold);
+            padding-left: 1rem;
+            background: linear-gradient(90deg, rgba(255, 223, 158, 0.04), transparent);
+        }
+
+        a.compact-row:hover .row-icon-box {
+            opacity: 1;
+            filter: drop-shadow(0 0 12px var(--text-gold)) drop-shadow(0 0 4px var(--text-gold));
+            transform: scale(1.08);
+        }
+
+        a.compact-row:hover .row-value {
+            color: #FFFFFF;
+            text-shadow: 0 0 12px var(--glow-gold);
+        }
+
+        /* --- Minimalist Luxury Popup Modal --- */
+        .luxury-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .luxury-modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .luxury-modal-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--text-gold);
+            padding: clamp(2rem, 5vw, 3.5rem);
+            width: 90%;
+            max-width: 550px;
+            position: relative;
+            transform: scale(0.92);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 
+                0 30px 70px rgba(0, 0, 0, 0.8),
+                0 0 40px rgba(255, 223, 158, 0.15);
+        }
+
+        .luxury-modal-overlay.active .luxury-modal-card {
+            transform: scale(1);
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close-btn:hover {
+            color: var(--text-gold);
+        }
+
+        .modal-close-btn svg {
+            width: 100%;
+            height: 100%;
+            fill: currentColor;
+        }
+
+        /* --- Minimal Footer --- */
+        footer {
+            padding: 5rem 0;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            gap: 1.5rem;
+        }
+
+        /* --- Comprehensive Responsive Breakpoints --- */
+        @media (min-width: 993px) {
+            /* Lookbook staggered grid alignment on wide viewports for filtering objects */
+            .portfolio-item:nth-child(even):not(.hidden) {
+                transform: translateY(6rem);
+            }
+            #work {
+                padding-bottom: 14rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            #hero { 
+                grid-template-columns: 1fr; 
+                text-align: center; 
+                gap: 4rem; 
+            }
+            .hero-description { 
+                margin: 0 auto; 
+                margin-bottom: 2rem;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .portfolio-grid { 
+                grid-template-columns: 1fr; 
+                gap: 5rem; 
+            }
+            .about-grid { 
+                grid-template-columns: 1fr; 
+                gap: 4rem; 
+            }
+            .compact-contact-container { 
+                grid-template-columns: 1fr; 
+                gap: 4rem; 
+            }
+            footer { 
+                flex-direction: column; 
+                gap: 1.5rem; 
+                text-align: center; 
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 2rem 0;
+            }
+            nav {
+                width: 100%;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+            .btn-luxury {
+                width: 100%;
+            }
+            .portfolio-filters {
+                gap: 0.5rem;
+            }
+            .filter-btn {
+                font-size: 0.65rem;
+                padding: 6px 12px;
+            }
+            .about-quote {
+                padding-left: 1.2rem;
+            }
+            .compact-contact-container {
+                padding-top: 2rem;
+            }
+            .contact-column-title {
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Luxury Horizontal Navigation Header -->
+        <header>
+            <a href="#" class="luxury-logo-link">
+                <div class="logo-monogram">
+                    <span class="letter g">G</span>
+                    <span class="letter s">S</span>
+                </div>
+                <div class="logo-divider-line"></div>
+                <div class="logo-text-side">
+                    <span class="main-brand-title">GLYZA JANE SARMIENTO</span>
+                    <span class="sub-brand-title">Graphic Designer</span>
+                </div>
+            </a>
+            <nav>
+                <a href="#work">Projects</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Asymmetric Dark Lookbook Hero -->
+        <section id="hero">
+            <div class="hero-statement">
+                <span class="hero-tag">Graphic Designer</span>
+                <h1>Portfolio</h1>
+                <p class="hero-description">Hello! I'm <strong style="color: var(--text-gold); font-weight: 600;">Glyza</strong>, a BSIS student and graphic designer with a passion for creativity and innovation. Through design, I bring ideas to life and create meaningful visual experiences. Explore my portfolio and discover the work that reflects my skills, dedication, and creative journey.</p>
+                
+                <!-- Action Buttons Integration -->
+                <div class="hero-actions">
+                    <a href="#work" class="btn-luxury gold-solid">View Projects</a>
+                    <a href="#contact" class="btn-luxury gold-outline">Contact Me</a>
+                    
+                </div>
+            </div>
+            
+            <!-- Glowing Photo Container Box -->
+            <div class="hero-frame">
+                <img src="Gemini_Generated_Image_1jjhev1jjhev1jjh.png" alt="Studio Portrait Portfolio">
+                <div class="hero-image-overlay"></div>
+                <div class="hero-frame-stamp">GLYZA JANE SARMIENTO</div>
+            </div>
+        </section>
+
+        <!-- Curated Work Grid (Lookbook style) -->
+        <section id="work">
+            <div class="section-header">
+                <span class="section-subtitle">Portfolio</span>
+                <h2 class="section-title">My Projects</h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <!-- Dynamic Luxury Filter Controls -->
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="logo">Logo</button>
+                <button class="filter-btn" data-filter="infographics">Infographics</button>
+                <button class="filter-btn" data-filter="poster">Poster</button>
+                <button class="filter-btn" data-filter="brochure">Brochure</button>
+                <button class="filter-btn" data-filter="product-design">Product Design</button>
+            </div>
+
+            <!-- Dynamic Categorized Grid Layout -->
+            <div class="portfolio-grid">
+                
+                <!-- ========================================== -->
+<!-- LOGO EXHIBIT                               -->
+<!-- ========================================== -->
+
+<!-- Box 1: Pet Store Logo (Sits Up) -->
+<a href="#" class="portfolio-item" data-category="logo" style="margin-top: 0; display: inline-block; vertical-align: top;">
+    <div class="image-container" style="display: flex; align-items: center; justify-content: center;">
+        <img src="Cute Illustrated Dog House Pet Store Logo.jpg" alt="Pet Store Logo" style="max-width: 85%; max-height: 85%; object-fit: contain; display: block;">
+    </div>
+    <div class="item-meta">
+        <span class="item-category">Logo</span>
+        <h3 class="item-title">Pet Store</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 300; letter-spacing: 0.5px; margin-top: 0.5rem; line-height: 1.5; max-width: 400px;">
+            A charming and modern pet store logo designed to showcase love, care, and companionship for animals.
+        </p>
+    </div>
+</a>
+
+<!-- Box 2: Ice Cream (Pushed Down) -->
+<a href="#" class="portfolio-item" data-category="logo" style="margin-top: 50px; display: inline-block; vertical-align: top;">
+    <div class="image-container" style="display: flex; align-items: center; justify-content: center;">
+        <img src="Make up Artist Logo.jpg" alt="Ice Cream Identity" style="max-width: 85%; max-height: 85%; object-fit: contain; display: block;">
+    </div>
+    <div class="item-meta">
+        <span class="item-category">Logo</span>
+        <h3 class="item-title">Ice Cream</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 300; letter-spacing: 0.5px; margin-top: 0.5rem; line-height: 1.5; max-width: 400px;">
+            A fun and colorful ice cream logo featuring a creamy swirl and cheerful design, representing sweetness, happiness, and refreshing treats.
+        </p>
+    </div>
+</a>
+
+<!-- Box 3: Boutique (Sits Up) -->
+<a href="#" class="portfolio-item" data-category="logo" style="margin-top: 0; display: inline-block; vertical-align: top;">
+    <div class="image-container" style="display: flex; align-items: center; justify-content: center;">
+        <img src="Gray Fashionista Clothing Boutique Logo.jpg" alt="Boutique Logo" style="max-width: 85%; max-height: 85%; object-fit: contain; display: block;">
+    </div>
+    <div class="item-meta">
+        <span class="item-category">Logo</span>
+        <h3 class="item-title">Boutique</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 300; letter-spacing: 0.5px; margin-top: 0.5rem; line-height: 1.5; max-width: 400px;">
+            An elegant boutique logo featuring stylish typography and refined details, reflecting sophistication, fashion, and timeless beauty.
+        </p>
+    </div>
+</a>
+
+<!-- Box 4: Barbershop (Pushed Down) -->
+<a href="#" class="portfolio-item" data-category="logo" style="margin-top: 50px; display: inline-block; vertical-align: top;">
+    <div class="image-container" style="display: flex; align-items: center; justify-content: center;">
+        <img src="Black and White Modern Beauty Salon and Spa Logo.jpg" alt="Barbershop Logo" style="max-width: 85%; max-height: 85%; object-fit: contain; display: block;">
+    </div>
+    <div class="item-meta">
+        <span class="item-category">Logo</span>
+        <h3 class="item-title">Barbershop</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 300; letter-spacing: 0.5px; margin-top: 0.5rem; line-height: 1.5; max-width: 400px;">
+            A classic barbershop logo featuring clean lines and timeless barber elements, representing precision, style, and professionalism.
+        </p>
+    </div>
+</a>
+
+
+<!-- ========================================== -->
+<!-- INFOGRAPHICS EXHIBIT                       -->
+<!-- ========================================== -->
+
+<!-- Infographics: Climate Change (Sits Up) -->
+<a href="#" class="portfolio-item" data-category="infographics" style="margin-top: 0; display: inline-block; vertical-align: top;">
+    <div class="image-container" style="display: flex; align-items: center; justify-content: center;">
+        <!-- FIXED: Repaired broken img src closing quotes and style separation -->
+        <img src="SARMIENTO & CAMILI .png" alt="Climate Change Infographic" style="max-width: 85%; max-height: 85%; object-fit: contain; display: block;">
+    </div>
+    <div class="item-meta">
+        <span class="item-category">Infographics</span>
+        <h3 class="item-title">Climate Change</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 300; letter-spacing: 0.5px; margin-top: 0.5rem; line-height: 1.5; max-width: 400px;">
+            An informative and visually compelling infographic designed to communicate the causes, effects, and solutions of climate change. The project demonstrates effective use of data visualization, typography, color hierarchy, and layout design to transform complex environmental information into an engaging and easily understandable visual experience.
+        </p>
+    </div>
+</a>
+
+
+<!-- ========================================== -->
+<!-- POSTER EXHIBIT                             -->
+<!-- ========================================== -->
+
+<!-- Poster 1: Barbershop Poster (Pushed Down) -->
+<a href="#" class="portfolio-item" data-category="poster" style="margin-top: 50px; display: inline-block; vertical-align: top;">
+    <div class="image-container" style="display: flex; align-items: center; justify-content: center;">
+        <img src="Black and Yellow Retro Minimalist Price List Barbershop Poster.png" alt="Barbershop Poster" style="max-width: 85%; max-height: 85%; object-fit: contain; display: block;">
+    </div>
+    <div class="item-meta">
+        <span class="item-category">Poster</span>
+        <h3 class="item-title">Barbershop Poster</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 300; letter-spacing: 0.5px; margin-top: 0.5rem; line-height: 1.5; max-width: 400px;">
+            A vibrant and eye-catching poster for a barbershop, showcasing services and promotions with a modern design aesthetic.
+        </p>
+    </div>
+</a>
+
+<!-- Poster 2: Pets Shop Poster (Sits Up) -->
+<a href="#" class="portfolio-item" data-category="poster" style="margin-top: 0; display: inline-block; vertical-align: top;">
+    <div class="image-container" style="display: flex; align-items: center; justify-content: center;">
+        <img src="Beige Brown Organic Illustrative Business Pets Shop Poster.png" alt="Pets Shop Poster" style="max-width: 85%; max-height: 85%; object-fit: contain; display: block;">
+    </div>
+    <div class="item-meta">
+        <span class="item-category">Poster</span>
+        <h3 class="item-title">Pets Shop Poster</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 300; letter-spacing: 0.5px; margin-top: 0.5rem; line-height: 1.5; max-width: 400px;">
+            A warm and inviting poster for a pets shop, highlighting services and products with a friendly and approachable design.
+        </p>
+    </div>
+</a>
+
+<!-- Poster 3: Ice Cream Poster (Pushed Down) -->
+<a href="#" class="portfolio-item" data-category="poster" style="margin-top: 50px; display: inline-block; vertical-align: top;">
+    <div class="image-container" style="display: flex; align-items: center; justify-content: center;">
+        <img src="Dusty Pink and Pink Illustrated Ice Cream Price List Poster.png" alt="Ice Cream Poster" style="max-width: 85%; max-height: 85%; object-fit: contain; display: block;">
+    </div>
+    <div class="item-meta">
+        <span class="item-category">Poster</span>
+        <h3 class="item-title">Ice Cream Poster</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 300; letter-spacing: 0.5px; margin-top: 0.5rem; line-height: 1.5; max-width: 400px;">
+            A delightful and appetizing poster for an ice cream shop, showcasing flavors and promotions with a vibrant and engaging design.
+        </p>
+    </div>
+</a>
+
+<!-- Poster 4: Parkwise Poster (Sits Up) -->
+<a href="#" class="portfolio-item" data-category="poster" style="margin-top: 0; display: inline-block; vertical-align: top;">
+    <div class="image-container" style="display: flex; align-items: center; justify-content: center;">
+        <!-- FIXED: Repaired broken img src closing quotes and style separation -->
+        <img src="5_20260606_235055_0002.png" alt="Parkwise Poster" style="max-width: 85%; max-height: 85%; object-fit: contain; display: block;">
+    </div>
+    <div class="item-meta">
+        <span class="item-category">Poster</span>
+        <h3 class="item-title">Parkwise Poster</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 300; letter-spacing: 0.5px; margin-top: 0.5rem; line-height: 1.5; max-width: 400px;">
+            A clean and engaging poster designed to promote ParkWise through effective visual communication and modern design elements.
+        </p>
+    </div>
+</a>
+
+
+<!-- ========================================== -->
+<!-- BROCHURE EXHIBIT                           -->
+<!-- ========================================== -->
+
+<!-- Brochure 1: Parkwise Front Design (Pushed Down) -->
+<a href="#" class="portfolio-item" data-category="brochure" style="margin-top: 50px; display: inline-block; vertical-align: top;">
+    <div class="image-container" style="display: flex; align-items: center; justify-content: center;">
+        <!-- FIXED: Repaired broken img src closing quotes and style separation -->
+        <img src="1_20260606_235055_0000.png" alt="Parkwise Front Cover" style="max-width: 85%; max-height: 85%; object-fit: contain; display: block;">
+    </div>
+    <div class="item-meta">
+        <span class="item-category">Brochure</span>
+        <h3 class="item-title">Parkwise Front Design</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 300; letter-spacing: 0.5px; margin-top: 0.5rem; line-height: 1.5; max-width: 400px;">
+            A visually appealing brochure cover designed to introduce ParkWise with clear branding, modern graphics, and an inviting layout that captures attention and highlights key information.
+        </p>
+    </div>
+</a>
+
+<!-- Brochure 2: Parkwise Back Design (Sits Up) -->
+<a href="#" class="portfolio-item" data-category="brochure" style="margin-top: 0; display: inline-block; vertical-align: top;">
+    <div class="image-container" style="display: flex; align-items: center; justify-content: center;">
+        <img src="2_20260606_235055_0001.png" alt="Parkwise Back Cover" style="max-width: 85%; max-height: 85%; object-fit: contain; display: block;">
+    </div>
+    <div class="item-meta">
+        <span class="item-category">Brochure</span>
+        <h3 class="item-title">Parkwise Back Design</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 300; letter-spacing: 0.5px; margin-top: 0.5rem; line-height: 1.5; max-width: 400px;">
+           A clean and informative back cover design featuring essential details, contact information, and cohesive branding to provide a polished and professional finish.
+        </p>
+    </div>
+</a>
+
+
+<!-- ========================================== -->
+<!-- PRODUCT DESIGN EXHIBIT                     -->
+<!-- ========================================== -->
+
+<!-- Product 1: Cologne (Pushed Down) -->
+<a href="#" class="portfolio-item" data-category="product-design" style="margin-top: 50px; display: inline-block; vertical-align: top;">
+    <div class="image-container" style="display: flex; align-items: center; justify-content: center;">
+        <!-- FIXED: Repaired broken img src closing quotes and style separation -->
+        <img src="Product.png" alt="Cologne Product" style="max-width: 85%; max-height: 85%; object-fit: contain; display: block;">
+    </div>
+    <div class="item-meta">
+        <span class="item-category">Product Design</span>
+        <h3 class="item-title">Cologne</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 300; letter-spacing: 0.5px; margin-top: 0.5rem; line-height: 1.5; max-width: 400px;">
+           A modern and elegant cologne branding design that combines sophistication and simplicity to create a strong and memorable visual identity.
+        </p>
+    </div>
+</a>
+
+<!-- Product 2: Cherry Blossom (Sits Up) -->
+<a href="#" class="portfolio-item" data-category="product-design" style="margin-top: 0; display: inline-block; vertical-align: top;">
+    <div class="image-container" style="display: flex; align-items: center; justify-content: center;">
+        <img src="Orange.png" alt="Cherry Blossom Product" style="max-width: 85%; max-height: 85%; object-fit: contain; display: block;">
+    </div>
+    <div class="item-meta">
+        <span class="item-category">Product Design</span>
+        <h3 class="item-title">Cherry Blossom</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 300; letter-spacing: 0.5px; margin-top: 0.5rem; line-height: 1.5; max-width: 400px;">
+           A refreshing and elegant fragrance inspired by the delicate beauty of cherry blossoms. This design highlights a soft, feminine aesthetic through a clean layout, floral elements, and a harmonious color palette that reflects freshness, grace, and sophistication.
+        </p>
+    </div>
+</a>
+
+<!-- Product 3: Princess (Pushed Down) -->
+<a href="#" class="portfolio-item" data-category="product-design" style="margin-top: 50px; display: inline-block; vertical-align: top;">
+    <!-- FIXED: Unified image container to use flex layout like other cards for exact styling consistency -->
+    <div class="image-container" style="display: flex; align-items: center; justify-content: center;">
+        <img src="Pink2.png" alt="Princess Design" style="max-width: 85%; max-height: 85%; object-fit: contain; display: block;">
+    </div>
+    <div class="item-meta">
+        <span class="item-category">Product Design</span>
+        <h3 class="item-title">Princess</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 300; letter-spacing: 0.5px; margin-top: 0.5rem; line-height: 1.5; max-width: 400px;">
+             A graceful and charming design that reflects elegance, confidence, and femininity through soft colors, refined typography, and a luxurious visual presentation.
+        </p>
+    </div>
+</a>
+
+<!-- Product 4: Wish (Sits Up) -->
+<a href="#" class="portfolio-item" data-category="product-design" style="margin-top: 0; display: inline-block; vertical-align: top;">
+    <div class="image-container" style="display: flex; align-items: center; justify-content: center;">
+        <!-- FIXED: Repaired broken img src closing quotes and style separation -->
+        <img src="Purple2.png" alt="Wish Product" style="max-width: 85%; max-height: 85%; object-fit: contain; display: block;">
+    </div>
+    <div class="item-meta">
+        <span class="item-category">Product Design</span>
+        <h3 class="item-title">Wish</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 300; letter-spacing: 0.5px; margin-top: 0.5rem; line-height: 1.5; max-width: 400px;">
+           A fresh and elegant design concept that symbolizes hope, dreams, and positivity. The visual identity combines clean aesthetics with soft, inviting elements to create a memorable and uplifting presentation.
+        </p>
+    </div>
+</a>
+
+<!-- Product 5: Dream (Pushed Down) -->
+<a href="#" class="portfolio-item" data-category="product-design" style="margin-top: 50px; display: inline-block; vertical-align: top;">
+    <div class="image-container" style="display: flex; align-items: center; justify-content: center;">
+        <img src="Purple.png" alt="Dream Product" style="max-width: 85%; max-height: 85%; object-fit: contain; display: block;">
+    </div>
+    <div class="item-meta">
+        <span class="item-category">Product Design</span>
+        <h3 class="item-title">Dream</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 300; letter-spacing: 0.5px; margin-top: 0.5rem; line-height: 1.5; max-width: 400px;">
+           A sleek and elegant cologne design that captures the essence of dreams through soft visuals and refined branding.
+        </p>
+    </div>
+</a>
+
+<!-- Product 6: Paris (Sits Up) -->
+<a href="#" class="portfolio-item" data-category="product-design" style="margin-top: 0; display: inline-block; vertical-align: top;">
+    <div class="image-container" style="display: flex; align-items: center; justify-content: center;">
+        <img src="Pink1.png" alt="Paris Product" style="max-width: 85%; max-height: 85%; object-fit: contain; display: block;">
+    </div>
+    <div class="item-meta">
+        <span class="item-category">Product Design</span>
+        <h3 class="item-title">Paris</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 300; letter-spacing: 0.5px; margin-top: 0.5rem; line-height: 1.5; max-width: 400px;">
+           A stylish and sophisticated cologne design that reflects the beauty, romance, and elegance associated with Paris.
+        </p>
+    </div>
+</a>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- Full Width Philosophy/Studio Section -->
+   <section id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-quote">
+                About Me
+            </div>
+            <div class="about-right">
+                <h3>Glyza Jane Sarmiento</h3>
+                <p>Hi! I'm a BSIS student with a growing passion for graphic design and digital creativity. I enjoy creating visually appealing designs that help communicate ideas effectively and engage audiences.</p>
+                <p>As a student, I am continuously learning and developing my skills in design, exploring tools, techniques, and current design trends. I enjoy working on creative projects such as posters, social media graphics, presentations, and branding concepts that allow me to express my creativity and attention to detail.</p>
+                <p>I am eager to gain more experience, expand my knowledge, and use my design skills to create meaningful and impactful visual content. Through dedication, continuous learning, and creativity, I aim to grow as a designer and contribute to projects that make a difference.</p>
+                
+                <!-- Tool Highlights Row Placed Right Below the Description -->
+                <div class="about-tools" style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+                    <span style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-display); letter-spacing: 1px; margin-right: 4px; font-weight: 500;">TOOLS:</span>
+                    
+                    <!-- Design Badges -->
+                    <span style="background-color: rgba(255, 223, 158, 0.1); color: var(--text-gold); padding: 4px 12px; border-radius: 4px; border: 1px solid rgba(255, 223, 158, 0.25); font-size: 0.8rem; font-weight: 400; letter-spacing: 0.5px;">Canva</span>
+                    <span style="background-color: rgba(255, 223, 158, 0.1); color: var(--text-gold); padding: 4px 12px; border-radius: 4px; border: 1px solid rgba(255, 223, 158, 0.25); font-size: 0.8rem; font-weight: 400; letter-spacing: 0.5px;">Adobe Photoshop</span>
+                    
+                    <!-- Dev Badges -->
+                    <span style="background-color: rgba(161, 170, 185, 0.1); color: #A1AAB9; padding: 4px 12px; border-radius: 4px; border: 1px solid rgba(161, 170, 185, 0.25); font-size: 0.8rem; font-weight: 400; letter-spacing: 0.5px;">HTML</span>
+                    <span style="background-color: rgba(161, 170, 185, 0.1); color: #A1AAB9; padding: 4px 12px; border-radius: 4px; border: 1px solid rgba(161, 170, 185, 0.25); font-size: 0.8rem; font-weight: 400; letter-spacing: 0.5px;">CSS</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Balanced Split Contact Section with Icons -->
+    <div class="container">
+    <section id="contact">
+        
+        <!-- Luxury Section Header Added Here -->
+        <div style="text-align: center; margin-bottom: 3rem; padding-top: 1rem;">
+            <h2 style="font-family: var(--font-display); font-size: 2rem; color: var(--text-gold); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 0.5rem; text-shadow: 0 0 10px var(--glow-gold);">
+                Let's Work Together
+            </h2>
+            <div style="width: 50px; height: 1px; background: var(--text-gold); margin: 0 auto; opacity: 0.5;"></div>
+        </div>
+
+        <div class="compact-contact-container">
+            
+            <!-- Left Column: Direct Channels (Email, Address, Phone) -->
+            <div class="compact-list">
+                <span class="contact-column-title">Direct Channels</span>
+                
+                <!-- Envelope SVG Icon -->
+                <a href="mailto:glyzajanesarmiento@gmail.com" class="compact-row">
+                    <div class="row-icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    </div>
+                    <span class="row-value">glyzajanesarmiento@gmail.com</span>
+                </a>
+                
+                <!-- Map Pin SVG Icon -->
+                <div class="compact-row">
+                    <div class="row-icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
+                    <span class="row-value">New Corella, Davao del Norte, PH</span>
+                </div>
+                
+                <!-- Phone SVG Icon -->
+                <a href="tel:+639755128543" class="compact-row">
+                    <div class="row-icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    </div>
+                    <span class="row-value">+63 9755 128 543</span>
+                </a>
+            </div>
+
+            <!-- Right Column: Online Accounts (LinkedIn, OnlineJobs.ph) -->
+            <div class="compact-list" id="target-online-accounts">
+                <span class="contact-column-title">Online Accounts</span>
+                
+                <!-- LinkedIn SVG Icon -->
+                <a href="https://www.linkedin.com/in/glyzajane-sarmiento-726a08366/" target="_blank" class="compact-row">
+                    <div class="row-icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                    </div>
+                    <span class="row-value">linkedin.com/in/glyzajane-sarmiento-726a08366</span>
+                </a>
+                
+                <!-- OnlineJobs.ph Custom Styled Text Badge -->
+                <a href="https://v2.onlinejobs.ph/jobseekers/info/4187794" target="_blank" class="compact-row">
+                    <div class="row-icon-box">
+                        <span class="oj-badge">OJ</span>
+                    </div>
+                    <span class="row-value">onlinejobs.ph/jobseekers/info/4187794</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+        <!-- Footer -->
+        <footer style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px; padding: 2rem 0; width: 100%;">
+    <div>&copy; 2026 Glyza Jane Sarmiento. All rights reserved.</div>
+    <div style="font-size: 0.75rem; letter-spacing: 1px; color: var(--text-muted); opacity: 0.8;">Designed with absolute precision.</div>
+</footer>
+
+    <!-- Architectural Portfolio Filtering & Interactivity Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            /* --- Portfolio Filtering logic --- */
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    const targetFilter = button.getAttribute('data-filter');
+
+                    portfolioItems.forEach(item => {
+                        const itemCategory = item.getAttribute('data-category');
+                        if (targetFilter === 'all' || itemCategory === targetFilter) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            /* --- Hire Me Luxury Popup Modal Logic --- */
+            const openModalBtn = document.getElementById('openHireModal');
+            const closeModalBtn = document.getElementById('closeHireModal');
+            const modalOverlay = document.getElementById('hireModal');
+            const modalContentInject = document.getElementById('modalContentInject');
+            const sourceOnlineAccounts = document.getElementById('target-online-accounts');
+
+            // Safely replicate the online accounts look for a structural design ecosystem
+            if(sourceOnlineAccounts && modalContentInject) {
+                const clonedContent = sourceOnlineAccounts.cloneNode(true);
+                // Remove the ID to maintain strict HTML structure validation
+                clonedContent.removeAttribute('id');
+                modalContentInject.appendChild(clonedContent);
+            }
+
+            const openModal = () => {
+                modalOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Lock scrolling behind modal
+            };
+
+            const closeModal = () => {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = ''; // Restore site scroll
+            };
+
+            openModalBtn.addEventListener('click', openModal);
+            closeModalBtn.addEventListener('click', closeModal);
+
+            // Close modal if user clicks the dark layout background overlay safely
+            modalOverlay.addEventListener('click', (e) => {
+                if(e.target === modalOverlay) {
+                    closeModal();
+                }
+            });
+
+            // ESC key trap to close lookbook popup smoothly
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
